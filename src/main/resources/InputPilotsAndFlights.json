@@ -1,0 +1,37 @@
+{
+  "pilots": [
+    {
+      "idPilot": 1,
+      "fullName": "Иван Смирнов"
+    },
+    {
+      "idPilot": 2,
+      "fullName": "Алексей Иванов"
+    },
+    {
+      "idPilot": 3,
+      "fullName": "Сергей Петров"
+    },
+    {
+      "idPilot": 4,
+      "fullName": "Дмитрий Кузнецов"
+    },
+    {
+      "idPilot": 5,
+      "fullName": "Андрей Соколов"
+    }
+  ],
+  "flights": [
+    {
+      "id": 1,
+      "aircraftType": "Boeing 737",
+      "aircraftNumber": "B737-800",
+      "departureTime": "2025-03-31T22:00:00",
+      "arrivalTime": "2026-04-01T01:00:00",
+      "departureAirport": "JFK",
+      "arrivalAirport": "LAX",
+      "idPilots": [1]
+    }
+  ]
+}
+

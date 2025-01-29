@@ -1,0 +1,91 @@
+{
+  "specialists" : [ {
+    "idPilot" : 1,
+    "fullName" : "Иван Смирнов",
+    "timeMonthList" : [ {
+      "date" : "2025 сентябрь",
+      "totalFlightHours" : 720,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 декабрь",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2026 январь",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2026 февраль",
+      "totalFlightHours" : 672,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2026 март",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2026 апрель",
+      "totalFlightHours" : 1,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : false,
+      "exceedsDailyLimit" : false
+    }, {
+      "date" : "2025 ноябрь",
+      "totalFlightHours" : 720,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 октябрь",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 август",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 июль",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 июнь",
+      "totalFlightHours" : 720,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 май",
+      "totalFlightHours" : 744,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 апрель",
+      "totalFlightHours" : 720,
+      "exceedsMonthlyLimit" : true,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 март",
+      "totalFlightHours" : 2,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : false,
+      "exceedsDailyLimit" : false
+    } ]
+  } ]
+}
