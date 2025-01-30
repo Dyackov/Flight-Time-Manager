@@ -2,13 +2,9 @@ package ru.example.service;
 
 import ru.example.model.*;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PilotFlightServiceImpl implements PilotFlightService {
@@ -98,68 +94,204 @@ public class PilotFlightServiceImpl implements PilotFlightService {
             // полёты конкретного пилота
             List<Flight> flights = entry.getValue();
 
+            // Рассчитываем данные по налету
+            List<TimeMonth> timeMonths = calculateFlightTime(flights);
+
+            pilot.setTimeMonthList(timeMonths);
+
+
+//            Map<LocalDate, Long> sumHoursPerDay = getHoursPerDay(flights);
+//            Map<LocalDate, Long> sumHoursPerWeek = getHoursPerWeek(sumHoursPerDay);
+//            Map<LocalDate, Long> sumHoursPerMonth = getHoursPerMonths(sumHoursPerWeek);
+//
+//
+//
+//            for (Map.Entry<LocalDate,Long> rrr : sumHoursPerMonth.entrySet()) {
+//                LocalDate date = rrr.getKey();
+//                Long hours = rrr.getValue();
+//                TimeMonth timeMonth = new TimeMonth();
+//                timeMonth.setDate(date);
+//                timeMonth.setTotalFlightHours(hours);
+//                timeMonth.setExceedsMonthlyLimit(hours >= 80);
+//
+//                pilot.getTimeMonthList().add(timeMonth);
+//            }
+
+
             // Получение месяца и кол-во часов полёта
-            Map<LocalDate, Long> hoursPerMonth = getHoursPerMonth(flights);
+//            Map<LocalDate, Long> hoursPerMonth = getHoursPerMonth(flights);
+
+            // тест получение дня и кол-ва часов полёта//           Map<LocalDate, Long> hoursPerDay = getHoursPerDay(flights);
 
             // Сеттинг полётов пилоту
-            List<TimeMonth> timeMonths = addFlightHoursToPilot(pilot,hoursPerMonth);
+//            List<TimeMonth> timeMonths = addFlightHoursToPilot(pilot, hoursPerMonth);
 
 
             outputPilotsAndFlights.getSpecialists().add(pilot);
         }
     }
 
-//    //TODO 1 Вариант
-//    // Расстановка флагов
-//    private void setFlightLimitsFlags (TimeMonth timeMonth) {
-//        long flightHours = timeMonth.getTotalFlightHours();
-//        boolean exceedsMonthlyLimit = flightHours > 80;
-//        boolean exceedsWeeklyLimit = flightHours > 36;
-//        boolean exceedsDailyLimit = flightHours > 8;
+
+//    // возвращает месяц и кол во часов полёта
+//    private List<TimeMonth> addFlightHoursToPilot(Pilot pilot, Map<LocalDate, Long> hoursPerMonth) {
+//        List<TimeMonth> timeMonths = new ArrayList<>();
 //
-//        timeMonth.setExceedsMonthlyLimit(exceedsMonthlyLimit);
-//        timeMonth.setExceedsWeeklyLimit(exceedsWeeklyLimit);
-//        timeMonth.setExceedsDailyLimit(exceedsDailyLimit);
+//        for (Map.Entry<LocalDate, Long> monthsHours : hoursPerMonth.entrySet()) {
+//            LocalDate month = monthsHours.getKey();
+//            Long hours = monthsHours.getValue();
 //
+//            TimeMonth timeMonth = new TimeMonth(month, hours);
+//
+//            timeMonths.add(timeMonth);
+//            pilot.getTimeMonthList().add(timeMonth);
+//        }
+//        return timeMonths;
 //    }
 
-
-    // возвращает месяц и кол во часов полёта
-    private List<TimeMonth> addFlightHoursToPilot (Pilot pilot,Map<LocalDate, Long> hoursPerMonth) {
+    //TODO original
+    // Расчёта общего времени полёта за месяц с флагами
+    private List<TimeMonth> calculateFlightTime(List<Flight> flights) {
         List<TimeMonth> timeMonths = new ArrayList<>();
+        // 1. Рассчитываем налет за день
+        Map<LocalDate, Long> hoursPerDay = getHoursPerDay(flights);
 
-        for (Map.Entry<LocalDate, Long> monthsHours : hoursPerMonth.entrySet()){
-            LocalDate month = monthsHours.getKey();
-            Long hours = monthsHours.getValue();
+        // 2. Рассчитываем налет за неделю
+        Map<LocalDate, Long> hoursPerWeek = getHoursPerWeek(hoursPerDay);
+
+        // 3. Рассчитываем налет за месяц
+        Map<LocalDate, Long> hoursPerMonth = getHoursPerMonths(hoursPerDay);
+
+        for (Map.Entry<LocalDate, Long> monthEntry : hoursPerMonth.entrySet()) {
+            LocalDate month = monthEntry .getKey();
+            Long totalMonthHours  = monthEntry .getValue();
 
 
-//            //TODO 2 Вариант сразу в билдере
-//            TimeMonth timeMonth = TimeMonth.builder()
-//                    .date(month)
-//                    .totalFlightHours(hours)
-//                    .exceedsMonthlyLimit(hours >= 80)
-//                    .exceedsWeeklyLimit(hours >= 36)
-//                    .exceedsDailyLimit(hours >= 8)
-//                    .build();
-//
-//            //TODO 1 Вариант
-//            setFlightLimitsFlags(timeMonth);
+            // Флаг превышения месячного лимита
+            boolean exceedsMonthlyLimit = totalMonthHours > 80;
 
-            TimeMonth timeMonth = new TimeMonth(month,hours);
+            // Создаем объект TimeMonth
+            TimeMonth timeMonth = new TimeMonth();
+            timeMonth.setDate(month);
+            timeMonth.setTotalFlightHours(totalMonthHours);
+            timeMonth.setExceedsMonthlyLimit(exceedsMonthlyLimit);
+
+            // 5. Проверяем недельный лимит (в рамках этого месяца)
+            long maxWeeklyHours = hoursPerWeek.entrySet().stream()
+                    .filter(entry -> {
+                        LocalDate currentWeekDate = entry.getKey();
+                        // Преобразуем обе даты в YearMonth
+                        YearMonth currentMonth = YearMonth.from(month);
+                        YearMonth entryMonth = YearMonth.from(currentWeekDate);
+
+                        // Если неделя попадает в тот же месяц, либо переход через месяц
+                        return entryMonth.equals(currentMonth);
+                    })
+                    .mapToLong(Map.Entry::getValue)
+                    .max()
+                    .orElse(0);
+
+            timeMonth.setExceedsWeeklyLimit(maxWeeklyHours > 36);
+
+            // 6. Проверяем дневной лимит (в рамках этого месяца)
+            long maxDayHoursForMonth = hoursPerDay.entrySet().stream()
+                    .filter(entry -> {
+                        // Проверяем, попадает ли день в текущий месяц
+                        LocalDate day = entry.getKey();
+                        return day.getMonth().equals(month.getMonth());
+                    })
+                    .mapToLong(Map.Entry::getValue)
+                    .max()
+                    .orElse(0);
+            timeMonth.setExceedsDailyLimit(maxDayHoursForMonth > 8);
 
             timeMonths.add(timeMonth);
-            pilot.getTimeMonthList().add(timeMonth);
         }
         return timeMonths;
     }
 
+    //TODO original
+    // Возвращает количество часов полёта за 1 день
+    private Map<LocalDate, Long> getHoursPerDay(List<Flight> flights) {
+        // 1 день
+        Map<LocalDate, Long> sumHoursPerDay = new TreeMap<>();
+        for (Flight flight : flights) {
+            // Дата вылета
+            LocalDateTime departureTime = flight.getDepartureTime();
+            // Дата прилёта
+            LocalDateTime arrivalTime = flight.getArrivalTime();
+
+            while (departureTime.isBefore(arrivalTime)) {
+                // День вылета
+                LocalDate departureDay = departureTime.toLocalDate();
+                // День прилёта
+                LocalDate arrivalDay = arrivalTime.toLocalDate();
+                // След. день от дня вылета
+                LocalDateTime nextDay = departureDay.plusDays(1).atStartOfDay().withHour(0).withMinute(0).withSecond(0);
+
+                if (departureDay.equals(arrivalDay)) {
+                    long durationInHoursDay = Duration.between(departureTime, arrivalTime).toHours();
+                    sumHoursPerDay.merge(departureDay, durationInHoursDay, Long::sum);
+                    departureTime = nextDay;
+                } else {
+                    long durationInHours = Duration.between(departureTime, nextDay).toHours();
+                    sumHoursPerDay.merge(departureDay, durationInHours, Long::sum);
+                    // Обновляем начало на первый день следующего месяца
+                    departureTime = nextDay;
+                }
+            }
+        }
+        return sumHoursPerDay;
+    }
+
+    //TODO original
+    // Возвращает количество часов полёта за 7 дней
+    private Map<LocalDate, Long> getHoursPerWeek(Map<LocalDate, Long> hoursPerDay) {
+        Map<LocalDate, Long> sumHoursPerWeek = new TreeMap<>();
+
+        for (Map.Entry<LocalDate, Long> hoursPerWeek : hoursPerDay.entrySet()) {
+            // конкретная день
+            LocalDate weekday = hoursPerWeek.getKey();
+
+            // кол-во часов полёта в день
+            Long hours = hoursPerWeek.getValue();
+
+            // начало недели исходя из дня
+            LocalDate startOfWeek = weekday.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+
+            // конец недели исходя из дня
+            //           LocalDate endOfWeek = weekday.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+
+            sumHoursPerWeek.merge(startOfWeek, hours, Long::sum);
+        }
+        return sumHoursPerWeek;
+    }
+
+    //TODO original
+    // Возвращает количество часов полёта за месяц
+    private Map<LocalDate, Long> getHoursPerMonths(Map<LocalDate, Long> hoursPerDay) {
+        Map<LocalDate, Long> sumHoursPerMonth = new TreeMap<>();
+
+        for (Map.Entry<LocalDate, Long> hoursPerMonth : hoursPerDay.entrySet()) {
+            LocalDate month = hoursPerMonth.getKey();
+            Long hours = hoursPerMonth.getValue();
+            LocalDate startOfMonth = month.with(TemporalAdjusters.firstDayOfMonth());
+            sumHoursPerMonth.merge(startOfMonth, hours, Long::sum);
+        }
+        return sumHoursPerMonth;
+    }
+
+
+    //TODO подумать убрать ли
     // возвращает месяц и кол-во часов полёта
     private Map<LocalDate, Long> getHoursPerMonth(List<Flight> flights) {
         Map<LocalDate, Long> sumHoursPerMonth = new HashMap<>();
+
         for (Flight flight : flights) {
             LocalDateTime start = flight.getDepartureTime();
             LocalDateTime end = flight.getArrivalTime();
             validateDateTime(start, end);
+//            getHoursPerDay(flight,start.toLocalDate(),end.toLocalDate());
+
 
             while (start.isBefore(end)) {
                 // Получаем месяц и год начала текущего отрезка
@@ -179,7 +311,7 @@ public class PilotFlightServiceImpl implements PilotFlightService {
                     sumHoursPerMonth.merge(monthYearStart, durationInHours, Long::sum);
 
                     // Обновляем начало на первый день следующего месяца
-                    start=endOfMonth;
+                    start = endOfMonth;
                 }
             }
         }
