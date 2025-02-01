@@ -14,6 +14,28 @@ import java.time.temporal.WeekFields;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Реализация сервиса для обработки данных пилотов и рейсов. Сервис предоставляет функциональность для
+ * валидации и сохранения данных пилотов и рейсов, а также для вычисления времени налета по месяцам,
+ * неделям и дням.
+ *
+ * <p>Методы сервиса выполняют следующие действия:
+ * <ul>
+ *     <li>Валидация пилотов и рейсов</li>
+ *     <li>Связывание пилотов с рейсами</li>
+ *     <li>Расчет общего времени полетов по дням, неделям и месяцам</li>
+ *     <li>Сохранение данных в объект {@link OutputPilotsAndFlights}</li>
+ * </ul>
+ *
+ * <p>Методы сервиса ведут логирование на разных уровнях (INFO, DEBUG, WARN, ERROR) для отслеживания
+ * процессов валидации и обработки данных.
+ *
+ * @see FlightValidator
+ * @see PilotValidator
+ * @see Flight
+ * @see Pilot
+ * @see OutputPilotsAndFlights
+ */
 @Slf4j
 public class PilotFlightServiceImpl implements PilotFlightService {
 
@@ -21,6 +43,12 @@ public class PilotFlightServiceImpl implements PilotFlightService {
     private final FlightValidator flightValidator = new FlightValidator();
     private final PilotValidator pilotValidator = new PilotValidator();
 
+    /**
+     * Обрабатывает данные о пилотах и рейсах, включая валидацию и сохранение информации в {@link OutputPilotsAndFlights}.
+     *
+     * @param inputPilotsAndFlights объект, содержащий данные о пилотах и рейсах
+     * @return объект {@link OutputPilotsAndFlights}, содержащий обработанные данные пилотов и рейсов
+     */
     public OutputPilotsAndFlights process(InputPilotsAndFlights inputPilotsAndFlights) {
         log.info("Обработка данных InputPilotsAndFlights");
         OutputPilotsAndFlights outputPilotsAndFlights = new OutputPilotsAndFlights();
@@ -41,6 +69,12 @@ public class PilotFlightServiceImpl implements PilotFlightService {
         return outputPilotsAndFlights;
     }
 
+    /**
+     * Сохраняет данные пилотов и их налет в объект {@link OutputPilotsAndFlights}.
+     * Для каждого пилота рассчитывается налет по месяцам.
+     *
+     * @param outputPilotsAndFlights объект для сохранения данных о пилотах и их налете
+     */
     public void savedOutPut(OutputPilotsAndFlights outputPilotsAndFlights) {
         log.info("Начало обработки данных для сохранения в outputPilotsAndFlights");
         for (Map.Entry<Pilot, List<Flight>> entry : flightsByPilot.entrySet()) {
@@ -55,6 +89,12 @@ public class PilotFlightServiceImpl implements PilotFlightService {
         log.info("Завершена обработка данных и сохранение в outputPilotsAndFlights");
     }
 
+    /**
+     * Сохраняет данные пилотов и рейсов, валидация которых была успешной.
+     * Также связывает пилотов с рейсами.
+     *
+     * @param inputPilotsAndFlights объект, содержащий данные о пилотах и рейсах
+     */
     public void savedPilotAndFlights(InputPilotsAndFlights inputPilotsAndFlights) {
         List<String> validationErrors = new ArrayList<>();
         inputPilotsAndFlights.getPilots().forEach(pilot -> {
@@ -98,8 +138,14 @@ public class PilotFlightServiceImpl implements PilotFlightService {
         }
     }
 
-    //TODO original
-    // Расчёта общего времени полёта за месяц с флагами
+    /**
+     * Рассчитывает общее количество часов налета по месяцам на основе списка рейсов.
+     * Для каждого месяца вычисляются: общее количество часов, количество полетов, а также флаги
+     * для проверки превышения лимитов по дням, неделям и месяцам.
+     *
+     * @param flights список рейсов
+     * @return список объектов {@link TimeMonth}, содержащих информацию о налете по месяцам
+     */
     private List<TimeMonth> calculateFlightTime(List<Flight> flights) {
         List<TimeMonth> timeMonths = new ArrayList<>();
         log.info("Начало расчета общего времени полетов за месяц");
@@ -169,12 +215,19 @@ public class PilotFlightServiceImpl implements PilotFlightService {
 
             timeMonths.add(timeMonth);
         }
-        log.info("Завершен расчет общего времени полетов за месяц");
+        log.info("Завершен расчет налета по месяцам");
         return timeMonths;
     }
 
-    //TODO original
-    // Возвращает количество часов полёта за 1 день
+    /**
+     * Возвращает количество часов полёта за 1 день.
+     *
+     * Метод рассчитывает количество часов полета для каждого дня на основе списка рейсов.
+     * Для каждого рейса проверяется время вылета и прилёта, затем это время добавляется к общей сумме для каждого дня.
+     *
+     * @param flights Список рейсов, для которых необходимо рассчитать количество часов полета.
+     * @return Карта, где ключ — это день (LocalDate), а значение — общее количество часов полета в этот день.
+     */
     private Map<LocalDate, Long> getHoursPerDay(List<Flight> flights) {
         Map<LocalDate, Long> sumHoursPerDay = new TreeMap<>();
         log.info("Начало расчета количества часов полета за 1 день");
@@ -217,8 +270,14 @@ public class PilotFlightServiceImpl implements PilotFlightService {
         return sumHoursPerDay;
     }
 
-    //TODO original
-    // Возвращает количество часов полёта за 7 дней
+    /**
+     * Возвращает количество часов полёта за 7 дней.
+     *
+     * Метод рассчитывает количество часов полета за неделю, группируя часы полета по началу недели (понедельник).
+     *
+     * @param hoursPerDay Карта, где ключ — это день, а значение — количество часов полета в этот день.
+     * @return Карта, где ключ — это начало недели (понедельник), а значение — общее количество часов полета в эту неделю.
+     */
     private Map<LocalDate, Long> getHoursPerWeek(Map<LocalDate, Long> hoursPerDay) {
         Map<LocalDate, Long> sumHoursPerWeek = new TreeMap<>();
         log.info("Начало расчета количества часов полета за неделю");
@@ -239,8 +298,14 @@ public class PilotFlightServiceImpl implements PilotFlightService {
         return sumHoursPerWeek;
     }
 
-    //TODO original
-    // Возвращает количество часов полёта за месяц
+    /**
+     * Возвращает количество часов полёта за месяц.
+     *
+     * Метод рассчитывает количество часов полета за месяц, группируя часы полета по началу месяца.
+     *
+     * @param hoursPerDay Карта, где ключ — это день, а значение — количество часов полета в этот день.
+     * @return Карта, где ключ — это начало месяца, а значение — общее количество часов полета в этот месяц.
+     */
     private Map<LocalDate, Long> getHoursPerMonths(Map<LocalDate, Long> hoursPerDay) {
         Map<LocalDate, Long> sumHoursPerMonth = new TreeMap<>();
         log.info("Начало расчета количества часов полета за месяц");

@@ -4,283 +4,8 @@
     "fullName" : "Алексей Петров",
     "timeMonthList" : [ {
       "date" : "2024 ноябрь",
-      "totalFlightHours" : 8,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 6,
-    "fullName" : "Сергей Иванов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 8,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 7,
-    "fullName" : "Михаил Павлов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 8,
-    "fullName" : "Роман Зайцев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 9,
-    "fullName" : "Дмитрий Кузнецов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 9,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 10,
-    "fullName" : "Евгений Михайлов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 9,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 11,
-    "fullName" : "Виктор Богданов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 12,
-    "fullName" : "Юрий Орлов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 13,
-    "fullName" : "Никита Воронков",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 14,
-    "fullName" : "Георгий Шевченко",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 15,
-    "fullName" : "Аркадий Смирнов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 10,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 16,
-    "fullName" : "Кирилл Орлов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 10,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 17,
-    "fullName" : "Тимур Абдулов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 18,
-    "fullName" : "Вадим Чистяков",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 19,
-    "fullName" : "Денис Сергеев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 20,
-    "fullName" : "Евгений Кузнецов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 21,
-    "fullName" : "Игорь Никифоров",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 9,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 22,
-    "fullName" : "Илья Борисов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 9,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 23,
-    "fullName" : "Даниил Савельев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 24,
-    "fullName" : "Максим Федоров",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 25,
-    "fullName" : "Андрей Исаев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 10,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 26,
-    "fullName" : "Валерий Тимофеев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 10,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 27,
-    "fullName" : "Николай Гришин",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 28,
-    "fullName" : "Роман Ковалев",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
-    } ]
-  }, {
-    "idPilot" : 29,
-    "fullName" : "Петр Степанов",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : true
-    } ]
-  }, {
-    "idPilot" : 30,
-    "fullName" : "Станислав Ребров",
-    "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 12,
-      "totalFlightsInMonth" : 1,
+      "totalFlightHours" : 24,
+      "totalFlightsInMonth" : 2,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : false,
       "exceedsDailyLimit" : true
@@ -289,19 +14,33 @@
     "idPilot" : 1,
     "fullName" : "Иван Смирнов",
     "timeMonthList" : [ {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 14,
+      "date" : "2024 октябрь",
+      "totalFlightHours" : 26,
       "totalFlightsInMonth" : 1,
       "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2024 ноябрь",
+      "totalFlightHours" : 13,
+      "totalFlightsInMonth" : 1,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : true,
       "exceedsDailyLimit" : true
     } ]
   }, {
     "idPilot" : 2,
     "fullName" : "Антон Галкин",
     "timeMonthList" : [ {
+      "date" : "2024 октябрь",
+      "totalFlightHours" : 26,
+      "totalFlightsInMonth" : 1,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : false,
+      "exceedsDailyLimit" : true
+    }, {
       "date" : "2024 ноябрь",
-      "totalFlightHours" : 14,
+      "totalFlightHours" : 10,
       "totalFlightsInMonth" : 1,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : false,
@@ -311,37 +50,23 @@
     "idPilot" : 3,
     "fullName" : "Пётр Ян",
     "timeMonthList" : [ {
-      "date" : "2024 октябрь",
-      "totalFlightHours" : 26,
-      "totalFlightsInMonth" : 1,
+      "date" : "2024 ноябрь",
+      "totalFlightHours" : 17,
+      "totalFlightsInMonth" : 2,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : false,
       "exceedsDailyLimit" : true
-    }, {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 1,
-      "totalFlightsInMonth" : 0,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
     } ]
   }, {
     "idPilot" : 4,
     "fullName" : "Тимофей Сироткин",
     "timeMonthList" : [ {
-      "date" : "2024 октябрь",
-      "totalFlightHours" : 26,
-      "totalFlightsInMonth" : 1,
+      "date" : "2024 ноябрь",
+      "totalFlightHours" : 20,
+      "totalFlightsInMonth" : 2,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : false,
       "exceedsDailyLimit" : true
-    }, {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 1,
-      "totalFlightsInMonth" : 0,
-      "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
-      "exceedsDailyLimit" : false
     } ]
   } ]
 }
