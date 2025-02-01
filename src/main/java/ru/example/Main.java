@@ -1,10 +1,10 @@
 package ru.example;
 
-import ru.example.app.Start;
+import ru.example.app.PilotServiceRunner;
 
 public class Main {
     public static void main(String[] args) {
-        Start pilot = new Start();
-        pilot.pilots();
+        PilotServiceRunner pilot = new PilotServiceRunner();
+        pilot.run();
     }
 }

@@ -1,37 +1,61 @@
 {
   "pilots": [
-    {
-      "idPilot": 1,
-      "fullName": "Иван Смирнов"
-    },
-    {
-      "idPilot": 2,
-      "fullName": "Алексей Иванов"
-    },
-    {
-      "idPilot": 3,
-      "fullName": "Сергей Петров"
-    },
-    {
-      "idPilot": 4,
-      "fullName": "Дмитрий Кузнецов"
-    },
-    {
-      "idPilot": 5,
-      "fullName": "Андрей Соколов"
-    }
+    { "idPilot": 1, "fullName": "Иван Смирнов" },
+    { "idPilot": 2, "fullName": "Антон Галкин" },
+    { "idPilot": 3, "fullName": "Пётр Ян" },
+    { "idPilot": 4, "fullName": "Тимофей Сироткин" },
+    { "idPilot": 5, "fullName": "Алексей Петров" }
   ],
   "flights": [
     {
       "id": 1,
       "aircraftType": "Boeing 737",
       "aircraftNumber": "B737-800",
-      "departureTime": "2025-03-31T22:00:00",
-      "arrivalTime": "2026-04-01T01:00:00",
+      "departureTime": "2024-10-30T22:00:00",
+      "arrivalTime": "2024-11-01T01:00:00",
       "departureAirport": "JFK",
       "arrivalAirport": "LAX",
-      "idPilots": [1]
+      "idPilots": [1, 2]
+    },
+    {
+      "id": 2,
+      "aircraftType": "Airbus A320",
+      "aircraftNumber": "A320-200",
+      "departureTime": "2024-11-01T10:00:00",
+      "arrivalTime": "2024-11-01T18:00:00",
+      "departureAirport": "SVO",
+      "arrivalAirport": "LED",
+      "idPilots": [3, 4]
+    },
+    {
+      "id": 3,
+      "aircraftType": "Boeing 737",
+      "aircraftNumber": "B737-900",
+      "departureTime": "2024-11-01T22:00:00",
+      "arrivalTime": "2024-11-02T10:00:00",
+      "departureAirport": "LHR",
+      "arrivalAirport": "DXB",
+      "idPilots": [5, 1]
+    },
+    {
+      "id": 4,
+      "aircraftType": "Boeing 747",
+      "aircraftNumber": "B747-400",
+      "departureTime": "2024-11-02T13:00:00",
+      "arrivalTime": "2024-11-02T22:00:00",
+      "departureAirport": "DXB",
+      "arrivalAirport": "HKG",
+      "idPilots": [2, 3]
+    },
+    {
+      "id": 5,
+      "aircraftType": "Airbus A380",
+      "aircraftNumber": "A380-800",
+      "departureTime": "2024-11-03T00:00:00",
+      "arrivalTime": "2024-11-03T12:00:00",
+      "departureAirport": "JFK",
+      "arrivalAirport": "SYD",
+      "idPilots": [4, 5]
     }
   ]
 }
-
