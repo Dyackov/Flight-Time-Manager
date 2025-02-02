@@ -1,8 +1,9 @@
-package ru.example.model;
+package ru.example.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.example.model.Pilot;
 
 import java.util.ArrayList;
 import java.util.List;

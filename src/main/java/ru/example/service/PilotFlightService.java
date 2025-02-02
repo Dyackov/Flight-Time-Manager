@@ -1,7 +1,7 @@
 package ru.example.service;
 
-import ru.example.model.InputPilotsAndFlights;
-import ru.example.model.OutputPilotsAndFlights;
+import ru.example.dto.InputPilotsAndFlights;
+import ru.example.dto.OutputPilotsAndFlights;
 
 /**
  * Сервис для обработки данных о пилотах и рейсах.

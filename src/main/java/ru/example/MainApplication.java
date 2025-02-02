@@ -1,6 +1,6 @@
 package ru.example;
 
-import ru.example.app.PilotServiceRunner;
+import ru.example.runner.PilotServiceRunner;
 
 /**
  * Главный класс приложения, который инициализирует выполнение сервиса для пилотов.
@@ -9,7 +9,7 @@ import ru.example.app.PilotServiceRunner;
  *
  * <p>Основное назначение этого класса — запуск сервиса, связанного с пилотами, при старте приложения.</p>
  */
-public class Main {
+public class MainApplication {
 
     /**
      * Точка входа в приложение. Этот метод создаёт экземпляр {@link PilotServiceRunner} и

@@ -1,9 +1,9 @@
-package ru.example.app;
+package ru.example.runner;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.example.config.ObjectMapperConfig;
-import ru.example.model.InputPilotsAndFlights;
-import ru.example.model.OutputPilotsAndFlights;
+import ru.example.dto.InputPilotsAndFlights;
+import ru.example.dto.OutputPilotsAndFlights;
 import ru.example.service.DataPersistenceService;
 import ru.example.service.DataPersistenceServiceImpl;
 import ru.example.service.PilotFlightService;
@@ -48,7 +48,6 @@ public class PilotServiceRunner {
 
     /**
      * Конструктор для инициализации сервисов.
-     *
      * Создает экземпляры сервисов для обработки данных с использованием конфигурации {@link ObjectMapperConfig}.
      */
     public PilotServiceRunner() {

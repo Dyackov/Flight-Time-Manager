@@ -11,11 +11,11 @@
       "id": 1,
       "aircraftType": "Boeing 737",
       "aircraftNumber": "B737-800",
-      "departureTime": "2024-10-30T22:00:00",
-      "arrivalTime": "2024-11-01T01:00:00",
+      "departureTime": "2025-01-30T01:00:00",
+      "arrivalTime": "2025-02-01T13:00:00",
       "departureAirport": "JFK",
       "arrivalAirport": "LAX",
-      "idPilots": [1, 2]
+      "idPilots": [1,2]
     },
     {
       "id": 2,

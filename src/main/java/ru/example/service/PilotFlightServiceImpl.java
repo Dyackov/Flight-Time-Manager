@@ -1,6 +1,8 @@
 package ru.example.service;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.example.dto.InputPilotsAndFlights;
+import ru.example.dto.OutputPilotsAndFlights;
 import ru.example.model.*;
 import ru.example.validator.FlightValidator;
 import ru.example.validator.PilotValidator;
@@ -40,6 +42,7 @@ import java.util.stream.Collectors;
 public class PilotFlightServiceImpl implements PilotFlightService {
 
     private final Map<Pilot, List<Flight>> flightsByPilot = new HashMap<>();
+
     private final FlightValidator flightValidator = new FlightValidator();
     private final PilotValidator pilotValidator = new PilotValidator();
 
@@ -221,7 +224,6 @@ public class PilotFlightServiceImpl implements PilotFlightService {
 
     /**
      * Возвращает количество часов полёта за 1 день.
-     *
      * Метод рассчитывает количество часов полета для каждого дня на основе списка рейсов.
      * Для каждого рейса проверяется время вылета и прилёта, затем это время добавляется к общей сумме для каждого дня.
      *
@@ -272,7 +274,6 @@ public class PilotFlightServiceImpl implements PilotFlightService {
 
     /**
      * Возвращает количество часов полёта за 7 дней.
-     *
      * Метод рассчитывает количество часов полета за неделю, группируя часы полета по началу недели (понедельник).
      *
      * @param hoursPerDay Карта, где ключ — это день, а значение — количество часов полета в этот день.
@@ -300,7 +301,6 @@ public class PilotFlightServiceImpl implements PilotFlightService {
 
     /**
      * Возвращает количество часов полёта за месяц.
-     *
      * Метод рассчитывает количество часов полета за месяц, группируя часы полета по началу месяца.
      *
      * @param hoursPerDay Карта, где ключ — это день, а значение — количество часов полета в этот день.

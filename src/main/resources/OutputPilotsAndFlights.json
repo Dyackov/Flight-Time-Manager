@@ -14,16 +14,23 @@
     "idPilot" : 1,
     "fullName" : "Иван Смирнов",
     "timeMonthList" : [ {
-      "date" : "2024 октябрь",
-      "totalFlightHours" : 26,
+      "date" : "2024 ноябрь",
+      "totalFlightHours" : 12,
+      "totalFlightsInMonth" : 1,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : false,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 январь",
+      "totalFlightHours" : 47,
       "totalFlightsInMonth" : 1,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : true,
       "exceedsDailyLimit" : true
     }, {
-      "date" : "2024 ноябрь",
+      "date" : "2025 февраль",
       "totalFlightHours" : 13,
-      "totalFlightsInMonth" : 1,
+      "totalFlightsInMonth" : 0,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : true,
       "exceedsDailyLimit" : true
@@ -32,18 +39,25 @@
     "idPilot" : 2,
     "fullName" : "Антон Галкин",
     "timeMonthList" : [ {
-      "date" : "2024 октябрь",
-      "totalFlightHours" : 26,
+      "date" : "2024 ноябрь",
+      "totalFlightHours" : 9,
       "totalFlightsInMonth" : 1,
       "exceedsMonthlyLimit" : false,
       "exceedsWeeklyLimit" : false,
       "exceedsDailyLimit" : true
     }, {
-      "date" : "2024 ноябрь",
-      "totalFlightHours" : 10,
+      "date" : "2025 январь",
+      "totalFlightHours" : 47,
       "totalFlightsInMonth" : 1,
       "exceedsMonthlyLimit" : false,
-      "exceedsWeeklyLimit" : false,
+      "exceedsWeeklyLimit" : true,
+      "exceedsDailyLimit" : true
+    }, {
+      "date" : "2025 февраль",
+      "totalFlightHours" : 13,
+      "totalFlightsInMonth" : 0,
+      "exceedsMonthlyLimit" : false,
+      "exceedsWeeklyLimit" : true,
       "exceedsDailyLimit" : true
     } ]
   }, {
